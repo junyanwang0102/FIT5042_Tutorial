@@ -1,0 +1,85 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"> 
+    <h:head> 
+        <title>W2B</title> 
+        <h:outputStylesheet library="css" name="bootstrap-min.css"></h:outputStylesheet>
+    </h:head> 
+    <h:body class="container"> 
+        <!-- Start Header --> 
+        <header> 
+            <h1>Introduction to JavaServer Faces</h1> 
+        </header> 
+        <!-- End Header --> 
+        <!-- Start Article --> 
+        <article> 
+            <h3>Enter your details</h3> 
+            <hr /> 
+            <!-- Form -->
+            <div class="well bs-component form-horizontal">
+                <h:form> 
+                    <fieldset>
+                        <legend>Tell us a bit about yourself!
+                        </legend>
+
+                        <!-- This solution uses a more complex mark up that utilizes a CSS framework to enable a responsive view. -->
+                        <!-- Basically the idea is that certain CSS class will be loaded upon invalid validation -->
+                        <!-- Name input --> 
+                        <div class="form-group #{!name.valid ? 'has-error' : 'none'}">
+                            <h:outputLabel for="inputName" class="col-lg-2 control-label" value="Name" />
+                            <div class="col-lg-10">
+                                <h:inputText id="personName" 
+                                             class="form-control"
+                                             label="Name" size="32" value="#{personBean.name}" binding="#{name}" required="true" requiredMessage="Name is required"></h:inputText> 
+                                <h:message for="personName" class="#{!name.valid ? 'label label-warning' : 'none'}" />
+                            </div>
+                        </div>
+
+                        <div class="form-group #{!age.valid ? 'has-error' : 'none'}">
+                            <h:outputLabel for="inputName" class="col-lg-2 control-label" value="Age" />
+                            <div class="col-lg-10">
+                                <h:inputText id="personAge" 
+                                             class="form-control"
+                                             label="Name" size="32" value="#{personBean.age}" binding="#{age}" required="true" 
+                                             requiredMessage="Age is required"
+                                             validatorMessage="Please enter a value between 19 and 100"
+                                             converterMessage="Please enter a number">
+                                    <f:convertNumber integerOnly="true"/>
+                                    <f:validateLongRange minimum="18" maximum="100" /> 
+                                </h:inputText> 
+                                <h:message for="personAge" class="#{!age.valid ? 'label label-warning' : 'none'}" />
+                            </div>
+                        </div>
+
+                        <div class="form-group #{!message.valid ? 'has-error' : 'none'}">
+                            <h:outputLabel for="inputName" class="col-lg-2 control-label" value="Message" />
+                            <div class="col-lg-10">
+                                <h:inputTextarea id="personMessage" 
+                                                 class="form-control"
+                                                 label="Name" rows="6" value="#{personBean.message}" binding="#{message}" required="true" requiredMessage="Message is required">
+                                </h:inputTextarea> 
+                                <h:message for="personMessage" class="#{!message.valid ? 'label label-warning' : 'none'}" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-10 col-lg-offset-2">
+                                <h:commandButton id="submit" value="Submit" action="response" class="btn btn-primary"/> 
+                            </div>
+                        </div>
+                    </fieldset>
+                </h:form>
+            </div>
+
+            <!-- End Form --> 
+        </article> 
+        <!-- End Article --> 
+        <!-- Start Footer --> 
+        <footer> 
+            <p>This project created by Jian</p> 
+        </footer> 
+        <!-- End Footer --> 
+    </h:body> 
+</html>
+

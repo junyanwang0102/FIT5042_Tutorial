@@ -1,0 +1,27 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://xmlns.jcp.org/jsf/html"> 
+    <h:head> 
+        <title> Lab2B - Response</title> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" type="text/css" />
+    </h:head> 
+    <h:body class="container"> 
+        <header> 
+            <h1>Response from server</h1> 
+        </header> 
+        <article> 
+            <h2>Hello <h:outputText value="#{personBean.name}" />!</h2> 
+            <hr /> 
+            <div class="well">
+                <p>You are <h:outputText value="#{personBean.age}" /> years old.</p> 
+                <p>Your message was &quot;<h:outputText value="#{personBean.message}" />&quot;</p> 
+                <hr /> 
+                <p>That was fun! Let's try that <h:link outcome="index" value="again" />.</p> 
+            </div>
+        </article> 
+        <footer> 
+        </footer> 
+    </h:body> 
+</html>
+
