@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"      
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+        <title>#{indexController.pageTitle}</title> 
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="navbar navbar-inverse">
+                <div class="navbar-brand">
+                    Property  List
+                </div>
+            </div>
+
+
+            <h:form id="MyForm">
+                <table class="table table-bordered table-striped">
+                    <!-- For each movie in movies ArrayList... --> 
+                    <tr>
+                            <td> 
+                                <h:outputLabel id="Id" value="Id"  />
+                            </td>
+                            <td> 
+                                <h:outputLabel id="Price" value="Price"  />
+                            </td>
+          
+                            <td> 
+                                <h:outputLabel id="Address" value="Address"/>
+                            </td>
+                            
+                     </tr>
+                    <ui:repeat id="Myrepeat" value="#{propertyManagedBean.allProperties}" var="property" varStatus="status"> 
+                        
+                        <tr> 
+                            <td>
+                                <h:outputText value="#{property.propertyId}" id="propertyID" /> 
+                            </td>
+                            
+                            <td> 
+                                <h:outputText id="outPrice" value="#{property.price}"  />
+                            </td>
+<!--                            add column for Address-->
+                            <td>
+                                <h:outputText id="outAddress" value="#{property.address}"></h:outputText>
+                            </td>
+                            <td>
+                                <h:commandLink value="Show Detail" action="detail.xhtml">
+                                    <f:param name="propertyId" value="#{property.propertyId}"/>
+                                </h:commandLink>
+                                <h:outputText value=" "/>
+                            </td>
+                            
+                        </tr> 
+
+                    </ui:repeat> 
+
+                </table>
+                
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

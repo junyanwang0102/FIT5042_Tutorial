@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"      
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+        <title>#{indexController.pageTitle}</title> 
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="navbar navbar-inverse">
+                <div class="navbar-brand">
+                    Viewing Property Details
+                </div>
+            </div>
+
+
+            <h:form id="MyForm">
+
+                    
+<!--                private int propertyId;
+                    private double size;
+                    private int numberOfBedrooms;
+                    private double price;-->
+                <table class="table table-bordered ">
+
+                    <tr>
+                        <td width ="150" valign="top">Id:</td>
+                        
+                        <td valign="bottom">
+                            <h:outputLabel id = "Id" >#{property.propertyId}</h:outputLabel>    
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td width ="100" valign="top">Size: </td>
+                        
+                        <td valign="bottom">
+                            <h:outputLabel id = "Size" >#{propertyManagedBean.searchPropertyById(property.propertyId).getSize()}</h:outputLabel>    
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td width ="100" valign="top">Number of Bedrooms: </td>
+                        
+                        <td valign="bottom">
+                            <h:outputLabel id = "No-Bedrooms" >#{propertyManagedBean.searchPropertyById(property.propertyId).getNumberOfBedrooms()}</h:outputLabel>    
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td width ="100" valign="top">Price: </td>
+                        
+                        <td valign="bottom">
+                            <h:outputLabel id = "Price" >
+                                #{propertyManagedBean.searchPropertyById(property.propertyId).getPrice()}
+                            </h:outputLabel>    
+                            
+                        </td>
+                    </tr>
+                    
+                     <tr>
+                        <td width ="100" valign="top">Address:</td>
+                        
+                        <td valign="bottom">
+                            <h:outputLabel id = "Address" >#{propertyManagedBean.searchPropertyById(property.propertyId).getAddress()}</h:outputLabel>    
+                        </td>
+                    </tr>
+                    
+                    
+                    
+                    
+                </table>
+                <h:commandButton id="cancel" value="Cancel" action="index.xhtml" />
+            </h:form>
+        </div>
+    </h:body>
+</html>
+
