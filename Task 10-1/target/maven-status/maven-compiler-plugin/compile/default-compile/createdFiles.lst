@@ -1,0 +1,4 @@
+org/fit5042/pokemon/controller/PokemonController.class
+org/fit5042/pokemon/entity/Pokemon.class
+org/fit5042/pokemon/repository/PokemonRepository.class
+org/fit5042/pokemon/PokemonApplication.class
